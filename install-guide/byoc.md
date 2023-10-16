@@ -63,6 +63,7 @@ options, if you wish to assemble your own set of components.
 | [Sandbox](sandbox.md) | The demo sandbox environment, set up "the hard way" - without using the included provisioning script. This creates a complete Nephio-in-a-VM, just like the R1 demo sandbox. These instructions cover both Ubuntu and Fedora. |
 | [Google Cloud Platform](gcp.md) | Nephio running in GCP. A GKE cluster is used as the management cluster, with Anthos Config Controller for GCP infrastructure provisioning, Gitea as the Git provider, and Web UI authentication and authorization via Google OAuth 2.0 |
 | [OpenShift](openshift.md) | Nephio running in OpenShift, with Cluster API as the cluster provisioner, Gitea as the Git provider and Web UI authentication backed by Open Shift OIDC. |
+| [Nephio in Docker](nind.md) | Simiar to the demo sandbox environment but in a Docker container. This creates a complete Nephio-in-Docker, just like the R1 demo sandbox. These instructions cover both the manual installation but also an automated installation script. |
 
 ## A La Carte Installation
 
