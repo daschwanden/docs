@@ -97,5 +97,5 @@ kpt live init cluster-capi-kind-docker-templates
 kpt live apply cluster-capi-kind-docker-templates --reconcile-timeout 15m --output=table
 echo "-----------------"
 cd "$BASE" || exit
-echo "demo installation done"
+echo "NinD installation done"
 echo "-----------------"
