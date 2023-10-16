@@ -37,8 +37,8 @@ docker run --rm -d --env='DOCKER_OPTS=' --volume=/var/lib/docker --privileged --
 ```
 
 #### Connect to the NinD environment
-Connect to the Code OSS IDE by pointing your browser to [http://localhost:8080](http://localhost:8080).
-Then open a Terminal window and change into the ```/nephio-installation``` directory to execute the [Sandbox installation commands](sandbox.md#provisioning-your-management-cluster).
+Connect to the Code OSS IDE by pointing your browser to [http://localhost:8080](http://localhost:8080).  
+Then open a Terminal window, create and change into the ```/nephio-installation``` directory to execute the [Sandbox installation commands](sandbox.md#provisioning-your-management-cluster).
 
 ### Option 2 - Automated Installation with Dockerfile instructions
 
