@@ -3,4 +3,4 @@ FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:la
 ENV DEBIAN_FRONTEND=noninteractive
 
 COPY kind-config.yaml /nephio-installation/
-COPY 200_install-demo.sh /etc/workstation-startup.d/
+COPY 200_install-nind.sh /etc/workstation-startup.d/
