@@ -17,7 +17,7 @@ while (! docker stats --no-stream ); do
 done
 echo "-----------------"
 echo "-- Create kind cluster"
-kind create cluster --config=kind-config.yaml
+kind create cluster --config=/nind/kind-config.yaml
 echo "-----------------"
 echo "-- Setting kubeconfig..."
 mkdir /home/user/.kube
