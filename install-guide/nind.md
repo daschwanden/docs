@@ -18,7 +18,7 @@ In this guide, you will set up Nephio running in a Docker container with:
 In addition to the general prerequisites, you will need:
 
 * Access to a Linux machine running an OS supported by Nephio (Ubuntu 20.04/22.04, Fedora 34) with a minimum of 8vCPUs and 8 GB in RAM.
-* The Linux machine requires to have Docker as well as the g2tp driver installed. 
+* The Linux machine requires to have Docker as well as the gtp5g kernel module installed. 
 
 ## Provisioning Nephio
 
