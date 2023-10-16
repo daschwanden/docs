@@ -6,6 +6,7 @@ export BASE
 export LC_ALL=C.UTF-8
 echo "-----------------"
 echo "-- Change to install directory"
+mkdir /nephio-installation
 cd /nephio-installation
 echo "-----------------"
 echo "-- Waiting for Docker to start"
