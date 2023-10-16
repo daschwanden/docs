@@ -32,7 +32,8 @@ You have two options to run Nephio-in-Docker (NinD):
 Run the following command on your Linux machine to spin up a Docker container that will provide the NinD environment.  
 
 ```
-docker run --rm -d --env='DOCKER_OPTS=' --volume=/var/lib/docker --privileged --name nind -p 8080:80 -p 3000:3000 \
+docker run --rm -d --env='DOCKER_OPTS=' --volume=/var/lib/docker --privileged --name nind \
+           -p 8080:80 -p 7007:7007 -p 3000:3000 \
            us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss
 ```
 
@@ -51,7 +52,7 @@ cd nind
 docker build -t nind:v0.1 .
 
 docker run --rm -d --env='DOCKER_OPTS=' --volume=/var/lib/docker --privileged \
-           --name nind -p 8080:80 -p 3000:3000 nind:v0.1
+           --name nind -p 8080:80 -p 7007:7007 -p 3000:3000 nind:v0.1
 ```
 
 #### Follow the boot/NinD logs
