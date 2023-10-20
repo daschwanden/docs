@@ -24,6 +24,10 @@ mkdir /home/user/.kube
 cp /root/.kube/config /home/user/.kube/
 chown -R user:user /home/user/.kube
 echo "-----------------"
+echo "-- Create kpt-pkg dir..."
+mkdir kpt-pkg
+cd kpt-pkg
+echo "-----------------"
 echo "-- Gitea installation..."
 kubectl create namespace gitea
 kubectl create secret generic gitea-postgresql -n gitea \
@@ -95,6 +99,43 @@ kpt pkg get --for-deployment https://github.com/nephio-project/nephio-example-pa
 kpt fn render cluster-capi-kind-docker-templates
 kpt live init cluster-capi-kind-docker-templates
 kpt live apply cluster-capi-kind-docker-templates --reconcile-timeout 15m --output=table
+echo "---- metallb"
+kpt pkg get --for-deployment https://github.com/nephio-project/nephio-example-packages/metallb@v1.0.1
+kpt fn render metallb
+kpt live init metallb
+kpt live apply metallb --reconcile-timeout 15m --output=table
+echo "---- metallb sandbox config"
+kpt pkg get --for-deployment https://github.com/nephio-project/nephio-example-packages/metallb-sandbox-config@v1.0.1
+kpt fn render metallb-sandbox-config
+kpt live init metallb-sandbox-config
+kpt live apply metallb-sandbox-config --reconcile-timeout 15m --output=table
+echo "---- nephio webui"
+kpt pkg get --for-deployment https://github.com/nephio-project/nephio-packages/nephio-webui@v1.0.1
+kpt fn render nephio-webui
+kpt live init nephio-webui
+kpt live apply nephio-webui --reconcile-timeout 15m --output=table
+echo "-----------------"
+echo "-- Create repository dir..."
+cd ..
+mkdir repository
+cd repository
+kpt pkg get --for-deployment https://github.com/nephio-project/nephio-example-packages/repository@v1.0.1 mgmt
+kpt fn render mgmt
+kpt live init mgmt
+kpt live apply mgmt --reconcile-timeout 15m --output=table
+kpt pkg get --for-deployment https://github.com/nephio-project/nephio-example-packages/repository@v1.0.1 mgmt-staging
+kpt fn render mgmt-staging
+kpt live init mgmt-staging
+kpt live apply mgmt-staging --reconcile-timeout 15m --output=table
+echo "-----------------"
+echo "-- Create rootsync dir..."
+cd ..
+mkdir rootsync
+cd rootsync
+kpt pkg get --for-deployment https://github.com/nephio-project/nephio-example-packages/rootsync@v1.0.1 mgmt
+kpt fn render mgmt
+kpt live init mgmt
+kpt live apply mgmt --reconcile-timeout 15m --output=table
 echo "-----------------"
 cd "$BASE" || exit
 echo "NinD installation done"
