@@ -18,7 +18,22 @@ In this guide, you will set up Nephio running in a Docker container with:
 In addition to the general prerequisites, you will need:
 
 * Access to a Linux machine running an OS supported by Nephio (Ubuntu 20.04/22.04, Fedora 34) with a minimum of 8vCPUs and 8 GB in RAM.
-* The Linux machine requires to have [Docker](https://docs.docker.com/engine/install/ubuntu/) as well as the gtp5g kernel module installed ([required by free5gc UPF](https://github.com/free5gc/gtp5g)). 
+* The Linux machine requires to have the following items installed:
+** [Docker](https://docs.docker.com/engine/install/ubuntu/) 
+** The gtp5g kernel module ([required by free5gc UPF](https://github.com/free5gc/gtp5g)) 
+** Sufficient [inotify](https://linux.die.net/man/7/inotify) resources defined by ```fs.inotify.max_user_watches``` and ```fs.inotify.max_user_instances``` system variables (see more details below).
+
+Make sure you have sufficient ```inotify``` resources available by running the following commands on your Linux machine (the host).
+```
+sudo sysctl fs.inotify.max_user_watches=524288
+sudo sysctl fs.inotify.max_user_instances=512
+```
+
+To make the changes persistent, edit the file ```/etc/sysctl.conf``` and add these lines:
+```
+fs.inotify.max_user_watches = 524288
+fs.inotify.max_user_instances = 512
+```
 
 ## Provisioning Nephio
 
