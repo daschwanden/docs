@@ -76,13 +76,15 @@ When starting the NinD container image it will set up the NinD environment for y
 Depending on the spec of your environment this might take a bit of time.
 
 You can tail the logs to follow the progress of the NinD boot/install process.
-Run the command below and wait for the log entry reading ```Startup complete```.
+Run the command below to tail the logs.
 
 ```
 docker logs -f nind 
-...
+```
 
+Wait for the log entry reading ```Startup complete```.
 
+```
 -----------------
 NinD installation done
 -----------------
